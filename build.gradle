@@ -1,11 +1,10 @@
 plugins {
     id 'java'
+    id 'by.rbnk.myplugin' version '1.0.0'
 }
 
-group = 'by.rbnk'
-version = '1.1'
-
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -17,16 +16,6 @@ dependencies {
 tasks.withType(JavaCompile) {
     sourceCompatibility = '21'
     targetCompatibility = '21'
-}
-
-jar {
-    manifest {
-        attributes(
-                'Implementation-Title': 'utils',
-                'Implementation-Version': version,
-                'Main-Class': 'by.rbnk.Main'
-        )
-    }
 }
 
 test {
