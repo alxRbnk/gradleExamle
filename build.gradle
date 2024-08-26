@@ -1,7 +1,11 @@
 plugins {
     id 'java'
-    id 'by.rbnk.myplugin' version '1.0.0'
+//    id 'by.rbnk.myplugin' version '1.0.0'
+    id 'maven-publish'
 }
+
+group = 'by.rbnk'
+version = '1.0.0'
 
 repositories {
     mavenLocal()
@@ -20,4 +24,19 @@ tasks.withType(JavaCompile) {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'by.rbnk'
+            artifactId = 'stringutil'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal() // Публикация в локальный Maven-репозиторий
+    }
 }
