@@ -37,6 +37,6 @@ publishing {
         }
     }
     repositories {
-        mavenLocal() // Публикация в локальный Maven-репозиторий
+        mavenLocal()
     }
 }
